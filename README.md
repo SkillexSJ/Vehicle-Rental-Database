@@ -26,9 +26,9 @@ _Stores customer account details._
 
 | Field Name | Constraints          |
 | ---------- | -------------------- |
-| `user_id`  | **Primary Key**      |
+| `user_id`  | **Primary Key** |
 | `name`     |                      |
-| `email`    | **Unique**           |
+| `email`    | **Unique** |
 | `password` |                      |
 | `phone`    |                      |
 | `role`     | **(customer/admin)** |
@@ -39,11 +39,11 @@ _Manages the inventory of vehicles_
 
 | Field Name            | Constraints                        |
 | --------------------- | ---------------------------------- |
-| `vehicle_id`          | **Primary Key**                    |
+| `vehicle_id`          | **Primary Key** |
 | `name`                |                                    |
-| `type`                | **(car/bike/truck)**               |
+| `type`                | **(car/bike/truck)** |
 | `model`               |                                    |
-| `registration_number` | **Unique**                         |
+| `registration_number` | **Unique** |
 | `rental_price`        |                                    |
 | `status`              | **(available/rented/maintenance)** |
 
@@ -53,13 +53,23 @@ _The junction table linking Users and Vehicles for transactions._
 
 | Field Name   | Constraints                                 |
 | ------------ | ------------------------------------------- |
-| `booking_id` | **Primary Key**                             |
+| `booking_id` | **Primary Key** |
 | `user_id`    | **Foreign Key** (Ref: Users)                |
 | `vehicle_id` | **Foreign Key** (Ref: Vehicles)             |
 | `start_date` |                                             |
 | `end_date`   |                                             |
 | `total_cost` |                                             |
 | `status`     | **(pending/confirmed/completed/cancelled)** |
+
+---
+
+## 🔗 Table Relationships
+
+| Relationship | Description |
+|--------------|-------------|
+| One-to-Many | One user can have multiple bookings |
+| Many-to-One | Multiple bookings can refer to same vehicle |
+| One-to-One | Each booking links to one user and one vehicle |
 
 ---
 
@@ -74,10 +84,10 @@ The `queries.sql` file contains structured queries addressing the following anal
 
 ---
 
-## 📂 Repository Contents
+## 📂 Contents
 
 - `README.md` - Project documentation.
-- `queries.sql` - SQL scripts containing the solution code.
+- `queries.sql` - SQL codes containing the solution code.
 
 ---
 
